@@ -7,20 +7,17 @@
     "doc": "docs"
   },
   "scripts": {
-    "pretest": "npx ts-node src/helper/init.ts",
-    "test": "cucumber-js test || true",
-    "posttest": "npx ts-node src/helper/report.ts",
-    "test:failed": "cucumber-js -p rerun @rerun.txt",
-    "prettier": "npx prettier --write .",
-    "lint:check": "eslint . --max-warnings=0",
-    "lint:fix": "eslint . --fix"
+    "start": "ts-node src/server.ts",
+    "build": "tsc",
+    "test:setup": "ts-node src/testcontainers-setup.ts",
+    "test": "cucumber-js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@cucumber/cucumber": "^9.4.0",
-    "@playwright/test": "^1.43.1",
+    "@cucumber/cucumber": "^9.6.0",
+    "@playwright/test": "^1.45.2",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
     "eslint": "^8.47.0",
@@ -29,6 +26,14 @@
     "fs-extra": "^11.2.0",
     "multiple-cucumber-html-reporter": "^3.5.0",
     "prettier": "3.0.2",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "@types/cucumber": "^6.0.1",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.11",
+    "playwright": "^1.45.2",
+    "testcontainers": "^10.10.4",
+    "typescript": "^5.5.3"
   }
 }
